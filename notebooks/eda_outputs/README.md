@@ -1,22 +1,40 @@
+# Resultados del EDA para FD001 (NASA C‑MAPSS)
 
-EDA outputs for FD001 (NASA C-MAPSS)
+## Archivos generados en esta carpeta
 
-Files generated in this folder:
-- summary_stats.csv : overall summary stats including 99th percentile and missing_pct.
-- per_unit_stats.csv : aggregated per-unit stats with first/last sensor values.
-- top_features.csv : 12 candidate features with rationale.
-- rul_per_unit.csv : RUL per unit per cycle (train set).
-- pearson_sensors.csv, spearman_sensors.csv : correlation matrices.
-- eda_metadata.csv : basic metadata (counts, selected units).
-- Figures (png): count_units_cycles.png, trajectory_samples.png, correlation_heatmap.png,
-                pca_scree.png, rul_trajectories.png, acf_pacf_samples.png, sensor_vs_op_hexbin.png, summary_stats_table.png
+- **summary_stats.csv** : estadísticas generales incluyendo percentil 99 y porcentaje de valores faltantes  
+- **per_unit_stats.csv** : estadísticas agregadas por unidad con valores iniciales y finales de sensores  
+- **top_features.csv** : 12 características candidatas con su justificación  
+- **rul_per_unit.csv** : RUL por unidad y por ciclo (conjunto de entrenamiento)  
+- **pearson_sensors.csv**, **spearman_sensors.csv** : matrices de correlación  
+- **eda_metadata.csv** : metadatos básicos (conteos, unidades seleccionadas)  
+- **Figuras (PNG)**:  
+  - count_units_cycles.png  
+  - trajectory_samples.png  
+  - correlation_heatmap.png  
+  - pca_scree.png  
+  - rul_trajectories.png  
+  - acf_pacf_samples.png  
+  - sensor_vs_op_hexbin.png  
+  - summary_stats_table.png  
 
-How to reproduce:
-1. Ensure raw files are at: C:\Users\jucep\OneDrive\Escritorio\Proyecto CMAPSS\MANTENIMIENTO-PREDICTIVO\CMAPSSData\raw
-   - train_FD001.txt
-   - test_FD001.txt
-   - RUL_FD001.txt
-2. Install requirements:
-   pip install pandas numpy matplotlib seaborn scikit-learn statsmodels
-3. Run the notebook cells top-to-bottom in Jupyter.
-4. All outputs are saved to ./eda_outputs/
+---
+
+## Cómo reproducir
+
+1. Asegúrate de tener los archivos raw:
+  - train_FD001.txt  
+  - test_FD001.txt  
+  - RUL_FD001.txt  
+
+2. Instala los requisitos:  
+```bash
+pip install -r requirements.txt
+```
+
+3. Ejecuta las celdas del notebook de arriba hacia abajo en Jupyter.
+4. Todos los resultados se guardan en:
+`./eda_outputs/`
+
+
+
