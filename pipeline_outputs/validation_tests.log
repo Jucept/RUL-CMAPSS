@@ -1,0 +1,4 @@
+Validation tests
+causal_spot_check: [('s2_rm_5', True), ('s3_rm_5', True), ('s4_rm_5', True), ('s6_rm_5', True), ('s7_rm_5', True)]
+scaler_roundtrip: True
+RUL sanity: min RUL >=0 ? True

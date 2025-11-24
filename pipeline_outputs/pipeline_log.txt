@@ -1,0 +1,12 @@
+2025-11-23T22:11:51.530579 - Starting fit_transform_train (FAST_MODE=True)
+2025-11-23T22:11:51.783023 - Loaded train shape (20631, 26)
+2025-11-23T22:11:51.787373 - RUL range (0, 361)
+2025-11-23T22:11:52.075662 - Winsorization done; sample counts {'s1': 0, 's2': 394, 's3': 414, 's4': 414, 's5': 0}
+2025-11-23T22:11:52.085229 - Scaler fitted and saved to pipeline_outputs\scaler.pkl
+2025-11-23T22:12:16.275797 - Features saved count=149
+2025-11-23T22:12:16.514918 - Saved X_train.parquet and y_train.parquet
+2025-11-23T22:12:16.516690 - Metadata saved
+2025-11-23T22:12:16.592875 - fit_transform_train completed in 25.061885 seconds
+2025-11-23T22:12:16.601854 - Starting transform_test
+2025-11-23T22:12:33.097790 - Saved X_test.parquet
+2025-11-23T22:12:33.099183 - transform_test completed

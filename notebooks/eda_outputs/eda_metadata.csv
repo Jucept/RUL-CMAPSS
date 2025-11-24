@@ -1,0 +1,6 @@
+,value
+n_rows_train,20631
+n_units_train,100
+n_rows_test,13096
+n_units_test,100
+selected_units,"[39, 79, 69, np.int64(64), np.int64(42), np.int64(97)]"
