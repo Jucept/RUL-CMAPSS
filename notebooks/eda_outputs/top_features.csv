@@ -1,0 +1,13 @@
+name,description,rationale
+s2_rm_5,Rolling mean of s2 over window 5,Smooths short-term noise and captures trend
+s2_rstd_5,Rolling std of s2 over window 5,Captures local variability and abrupt changes
+s2_rm_10,Rolling mean of s2 over window 10,Smooths short-term noise and captures trend
+s2_rstd_10,Rolling std of s2 over window 10,Captures local variability and abrupt changes
+s2_rm_20,Rolling mean of s2 over window 20,Smooths short-term noise and captures trend
+s2_rstd_20,Rolling std of s2 over window 20,Captures local variability and abrupt changes
+s2_slope_10,Slope (OLS) of s2 over window 10,Quantifies local increasing/decreasing trend
+s3_rm_5,Rolling mean of s3 over window 5,Smooths short-term noise and captures trend
+s3_rstd_5,Rolling std of s3 over window 5,Captures local variability and abrupt changes
+s3_rm_10,Rolling mean of s3 over window 10,Smooths short-term noise and captures trend
+s3_rstd_10,Rolling std of s3 over window 10,Captures local variability and abrupt changes
+s3_rm_20,Rolling mean of s3 over window 20,Smooths short-term noise and captures trend

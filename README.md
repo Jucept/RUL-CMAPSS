@@ -1,21 +1,37 @@
-﻿RUL-CMAPSS: subset upload (src, notebooks, scripts, proposals, models CSVs). See full repo for details.
+# RUL-CMAPSS — Predicción de RUL (FD001)
 
-## Avcances
-- Construcción del pipeline
-- Diseño de un flujo rápido y reproducible para el dataset NASA C‑MAPSS FD001.
-- Lectura de datos, cálculo de RUL, imputación causal simple, winsorization ligera y escalado con StandardScaler.
-- Features temporales esenciales: medias y desviaciones móviles, pendientes (slopes), deltas desde el inicio y promedios de ventanas largas.
-- Artefactos clave: X_train.parquet, y_train.parquet, X_test.parquet, scaler.pkl, features.json, metadata.json.
-- No hay RUL negativos.
-- Tocó hacer spot‑checks de causalidad en rolling features para asegurar que no se usara información futura.
-- Entrenamiento inicial con **XGBoost**
-- Validación cruzada por unidad (GroupKFold) → varios folds para medir robustez.
-- Métricas iniciales obtenidas (baseline): RMSE ≈ 42, MAE ≈ 27.
-- Suavizado exponencial (EWM).
-- Esto reduce outliers y hace que las predicciones respeten la lógica física del problema.
+Autores: [Tu nombre]  
+Repositorio original: https://github.com/Jucept/RUL-CMAPSS
 
-## Explicación
-- Pipeline: Es una versión ligera que prioriza velocidad sobre exhaustividad.
-- Features rolling y slopes: capturan cómo cambian los sensores en ventanas cortas y largas; son indicadores de degradación progresiva.
-- Validación por folds: Cada fold representa un conjunto distinto de motores usados como validación. Así evitamos depender de una sola partición y obtuvimos métricas más confiables.
-- Resultados iniciales: RMSE y MAE te dicen el error promedio en ciclos de predicción. Aunque nos quedaron altos, sirven como referencia para mejoras.
+Resumen
+- Pipeline reproducible para predicción de Remaining Useful Life (RUL) sobre el dataset NASA C-MAPSS FD001.
+- Incluye preprocesado, generación de features (rolling mean/std/slope), validaciones básicas, entrenamiento XGBoost y scripts de evaluación.
+
+Estructura (relevante)
+- src/ : código fuente (pipeline.py, train_xgb.py, preds.py, scripts/)
+- notebooks/ : notebooks de EDA y análisis (EDA.ipynb, analysis_fastmode.ipynb)
+- data/ : instrucciones para descargar los archivos raw (no se incluyen los datos)
+- models/ : predicciones y métricas (CSV). Model binaries se omiten del push.
+- pipeline_outputs/ : artefactos (features.json, metadata.json, plots, validation logs) — no subir datos masivos.
+- diagnostics/ : CSVs con análisis por unit.
+- docs/ : informe final, presentación y enlaces.
+
+Reproducibilidad (resumen)
+1. Preparar datos: colocar train_FD001.txt, test_FD001.txt, RUL_FD001.txt en data/raw/
+2. Crear entorno: `pip install -r requirements.txt`
+3. Ejecutar pipeline:  
+   `python src/run_pipeline.py --raw_dir "data/raw"`
+4. Entrenar modelo:  
+   `python src/train_xgb.py`
+5. Evaluar:  
+   `python src/scripts/eval_from_preds.py --preds_dir models --out models/metrics_summary.csv`
+
+Métricas reportadas
+- RMSE, MAE, PHM08 (proxy en FAST_MODE = -RMSE). Ver `models/metrics_summary.csv`.
+
+Limitaciones y próximos pasos
+- PHM08 oficial no implementado (proxy usado).  
+- En FAST_MODE se usan features reducidos; para producción habilitar pruning y búsqueda de features.
+
+Referencias
+- Saxena et al., NASA C-MAPSS dataset.
