@@ -1,8 +1,5 @@
 # RUL-CMAPSS — Predicción de RUL (FD001)
 
-Autores: [Tu nombre]  
-Repositorio original: https://github.com/Jucept/RUL-CMAPSS
-
 Resumen
 - Pipeline reproducible para predicción de Remaining Useful Life (RUL) sobre el dataset NASA C-MAPSS FD001.
 - Incluye preprocesado, generación de features (rolling mean/std/slope), validaciones básicas, entrenamiento XGBoost y scripts de evaluación.
